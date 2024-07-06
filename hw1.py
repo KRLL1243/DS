@@ -8,3 +8,5 @@ student_info['Курс'] = input('Введите на каком курсе ст
 
 for key, value in student_info.items():
     print(key + '-' + value)
+
+# Временная сложность алгоритма O(n), где n - количество ключей
