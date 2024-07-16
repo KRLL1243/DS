@@ -35,7 +35,6 @@ def line_graph(y_true, y_pred):
 def histogram(data):
     fig, ax = plt.subplots(1, figsize=(18, 5))
 
-    # Нормальное распределение
     ax.hist(data, bins=30, alpha=0.7, color='blue')
     ax.set_title('Гистограмма')
 
