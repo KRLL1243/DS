@@ -1,4 +1,4 @@
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, MinMaxScaler
 from sklearn.compose import ColumnTransformer
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,11 +6,14 @@ from sklearn.impute import SimpleImputer
 import numpy as np
 
 
-def preprocess_data(df, target_column, numeric_features, categorical_features):
+def preprocess_data(df, target_column, numeric_features, categorical_features, scaler='Standard'):
     X = df.drop(columns=[target_column])
     y = df[target_column]
 
-    numeric_transformer = StandardScaler()
+    if scaler == 'Standard':
+        numeric_transformer = StandardScaler()
+    elif scaler == 'MinMax':
+        numeric_transformer = MinMaxScaler()
     categorical_transformer = OneHotEncoder(drop='first')
 
     preprocessor = ColumnTransformer(
